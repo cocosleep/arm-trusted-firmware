@@ -1,0 +1,40 @@
+// SPDX-License-Identifier: (GPL-2.0+ OR BSD-3-Clause)
+/*
+ * Copyright 2019-2020, 2022-2023 NXP
+ */
+
+/dts-v1/;
+#include "s32g2.dtsi"
+#include "s32gxxxa-rdb.dtsi"
+
+/ {
+	model = "NXP S32G274A-RDB2";
+};
+
+&gmac0_mdio {
+	#address-cells = <1>;
+	#size-cells = <0>;
+	/* AQR107 */
+	mdio_a_phy3: ethernet-phy@3 {
+		compatible = "ethernet-phy-ieee802.3-c45";
+		/*
+		 * Warning: from board revD onwards the PHY
+		 * address changed to 0x8 (fixup needed)
+		 */
+		reg = <3>;
+	};
+};
+
+&pfe_netif1 {
+	phy-mode = "sgmii";
+	phy-handle = <&mdio_a_phy3>;
+	/* workaround for ALB-10515 (remove when fixed) */
+	fixed-link {
+		speed = <1000>;
+		full-duplex;
+	};
+};
+
+&usdhc0 {
+	no-1-8-v;
+};

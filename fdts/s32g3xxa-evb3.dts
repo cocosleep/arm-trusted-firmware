@@ -1,0 +1,34 @@
+// SPDX-License-Identifier: (GPL-2.0+ OR BSD-3-Clause)
+/*
+ * Copyright 2022-2023 NXP
+ */
+
+/dts-v1/;
+#include "s32g.dtsi"
+#include "s32g3.dtsi"
+#include "s32gxxxa-evb.dtsi"
+
+/ {
+	model = "NXP S32G3XXX-EVB3";
+};
+
+&wkpu {
+	status = "okay";
+};
+
+&pfe_mdio2 {
+	/* AQR113 on S32G-PROCEVB3-S */
+	mdio_a_phy8: ethernet-phy@8 {
+		compatible = "ethernet-phy-ieee802.3-c45";
+		reg = <8>;
+	};
+};
+
+&pfe_netif0 {
+	phy-mode = "sgmii";
+	phy-handle = <&mdio_a_phy8>;
+	fixed-link {
+		speed = <1000>;
+		full-duplex;
+	};
+};
