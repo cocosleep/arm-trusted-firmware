@@ -1,0 +1,43 @@
+// SPDX-License-Identifier: (GPL-2.0+ OR BSD-3-Clause)
+/*
+ * Copyright 2022-2024 NXP
+ */
+
+/dts-v1/;
+#include "s32g.dtsi"
+#include "s32g3.dtsi"
+#include "s32gxxxa-alpha.dtsi"
+
+/ {
+	model = "ALPHA S32G399A-ALPHA";
+};
+
+&gmac0_mdio {
+	#address-cells = <1>;
+	#size-cells = <0>;
+	/* ARQ113C */
+	mdio_a_phy8: ethernet-phy@8 {
+		compatible = "ethernet-phy-ieee802.3-c45";
+		reg = <8>;
+	};
+};
+
+&pfe_netif1 {
+	phy-mode = "sgmii";
+	phy-handle = <&mdio_a_phy8>;
+	/* workaround for ALB-10515 (remove when fixed) */
+	fixed-link {
+		speed = <1000>;
+		full-duplex;
+	};
+};
+
+&usdhc0 {
+	mmc-hs200-1_8v;
+	mmc-hs400-1_8v;
+	mmc-hs400-enhanced-strobe;
+	/* Remove no-1-8-v to enable higher speed modes for SD card such as: SDR50 or DDR50
+	 * or eMMC memory, such as HS200, HS400 or HS400 ES respectively.
+	 */
+	no-1-8-v;
+};

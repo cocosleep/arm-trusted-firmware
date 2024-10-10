@@ -1,0 +1,46 @@
+{
+	"search.exclude": {
+		"**/.gitignore":true,
+		"**/COPYING.MIT":true,
+		"**/EULA":true,
+		"**/LICENSE*":true,
+		"**/MAINTAINERS*":true,
+		"downloads":true,
+		"build_*":true,
+		"licenses":true,
+
+		"fdts/[a-r]*":true,
+		"fdts/stm32*":true,
+		"fdts/tc*":true,
+		"fdts/s32r*":true,
+		"plat/[a-m]*":true,
+		"plat/nu*":true,
+		"plat/nv*":true,
+		"plat/[q-x]*":true,
+		"plat/nxp/soc-*":true,
+	},
+
+	"files.exclude": {
+		"**/.gitignore":true,
+		"**/COPYING.MIT":true,
+		"**/EULA":true,
+		"**/LICENSE*":true,
+		"**/MAINTAINERS*":true,
+		"downloads":true,
+		"build_*":true,
+		"licenses":true,
+
+		"fdts/[a-r]*":true,
+		"fdts/stm32*":true,
+		"fdts/tc*":true,
+		"fdts/s32r*":true,
+		"plat/[a-m]*":true,
+		"plat/nu*":true,
+		"plat/nv*":true,
+		"plat/[q-x]*":true,
+		"plat/nxp/soc-*":true,
+		"plat/nxp/s32/s32cc/s32r":true,
+		"plat/nxp/s32/s32cc/tbbr":true,
+    },
+    "editor.detectIndentation": true
+}
