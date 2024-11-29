@@ -4,8 +4,8 @@
  */
 
 /dts-v1/;
-#include "s32g.dtsi"
-#include "s32g3.dtsi"
+#include "s32g-alpha.dtsi"
+#include "s32g3-alpha.dtsi"
 #include "s32gxxxa-alpha.dtsi"
 
 / {
